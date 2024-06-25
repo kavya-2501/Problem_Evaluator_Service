@@ -15,9 +15,17 @@ app.listen(serverConfig.PORT, () => {
   SampleWorker('SampleQueue');
 
   SampleProducer('SampleJob',{
+    name:'Disha',
+    company:"Wells Fargo",
+    position:"Trainee software engineer",
+    locaation:'BLR'
+  },2);
+  
+  SampleProducer('SampleJob',{
     name:'Kavya',
     company:"Credera",
     position:"Trainee software engineer",
     locaation:'Hyderabad'
-  });
+  },1);
+  
 });

@@ -1,5 +1,6 @@
 import { Job } from "bullmq";
 
+import logger from "../config/loggerConfig";
 import { IJob } from "../types/bullMqJobDefinition";
 
 export default class SampleJob implements IJob{
@@ -11,6 +12,9 @@ export default class SampleJob implements IJob{
     }
     handle =(job?:Job)=>{
         console.log("Job handler");
+        if(!job){
+            logger.error(`Job is not found`);
+        }
         if(job){
             console.log(job.name,job.id,job.data);
         }

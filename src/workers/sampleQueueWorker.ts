@@ -7,7 +7,6 @@ export default function SampleWorker(queueName:string){
     new Worker(
         queueName,
         async (job:Job)=>{
-            console.log("Sample worker kicking",job);
             if(job.name==="SampleJob"){
                const sampleJobinstance= new SampleJob(job?.data);
                sampleJobinstance.handle(job);
