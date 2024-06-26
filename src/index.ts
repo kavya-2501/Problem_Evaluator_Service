@@ -1,5 +1,6 @@
 import express, {Express} from "express";
 
+import serverAdapter from "./config/bullboardConfig";
 import serverConfig from "./config/server.config";
 import SampleProducer from "./producers/sampleQueueProducer";
 import apiRouter from "./routes";
@@ -8,9 +9,11 @@ import SampleWorker from "./workers/sampleQueueWorker";
 const app: Express = express();
 
 app.use('/api',apiRouter);
+app.use('/admin/queues', serverAdapter.getRouter());
 
 app.listen(serverConfig.PORT, () => {
   console.log(`Server started on port :${serverConfig.PORT}`);
+  console.log('For the UI, open http://localhost:3000/admin/queues');
 
   SampleWorker('SampleQueue');
 
