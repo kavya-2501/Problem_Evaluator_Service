@@ -13,7 +13,7 @@ app.use('/admin/queues', serverAdapter.getRouter());
 
 app.listen(serverConfig.PORT, () => {
   console.log(`Server started on port :${serverConfig.PORT}`);
-  console.log('For the UI, open http://localhost:3000/admin/queues');
+  console.log('For the UI, open http://localhost:4000/admin/queues');
 
   SampleWorker('SampleQueue');
 
