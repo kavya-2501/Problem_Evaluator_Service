@@ -1,3 +1,4 @@
+import bodyParser from 'body-parser';
 import express, {Express} from "express";
 
 import serverAdapter from "./config/bullboardConfig";
@@ -7,6 +8,10 @@ import apiRouter from "./routes";
 import SampleWorker from "./workers/sampleQueueWorker";
 
 const app: Express = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.text());
 
 app.use('/api',apiRouter);
 app.use('/admin/queues', serverAdapter.getRouter());
