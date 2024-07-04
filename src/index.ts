@@ -37,7 +37,12 @@ app.listen(serverConfig.PORT, () => {
     locaation:'Hyderabad'
   },1);
 
-  const code=`print("Hello world")`;
-  pythonRun(code);
+  const code=`
+  x=input()
+  print("Value of x is ",x)
+  for i in range(int(x))
+    print(i)
+  `;
+  pythonRun(code,"100");
   
 });
