@@ -3,6 +3,7 @@ import express, {Express} from "express";
 
 import serverAdapter from "./config/bullboardConfig";
 import serverConfig from "./config/server.config";
+import pythonRun from './containers/runPythonDocker';
 import SampleProducer from "./producers/sampleQueueProducer";
 import apiRouter from "./routes";
 import SampleWorker from "./workers/sampleQueueWorker";
@@ -35,5 +36,8 @@ app.listen(serverConfig.PORT, () => {
     position:"Trainee software engineer",
     locaation:'Hyderabad'
   },1);
+
+  const code=`print("Hello world")`;
+  pythonRun(code);
   
 });

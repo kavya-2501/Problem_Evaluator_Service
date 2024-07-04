@@ -1,0 +1,1 @@
+export const PYTHON_IMAGE="python";
